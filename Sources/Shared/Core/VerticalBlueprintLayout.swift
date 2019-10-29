@@ -146,7 +146,8 @@ import UIKit
 
       nextY += sectionInset.top
       var sectionMaxY: CGFloat = 0
-      let perRow = Int(itemsPerRow ?? 1)
+      // IMPORTANT: Work Around to Fix Mis-position if itemsPerRow is zero
+      var perRow = Int(itemsPerRow ?? 1)
 
       for item in 0..<numberOfItems {
         let indexPath = IndexPath(item: item, section: section)
@@ -155,6 +156,11 @@ import UIKit
         defer { previousAttribute = layoutAttribute }
 
         layoutAttribute.size = resolveSizeForItem(at: indexPath)
+        
+        // IMPORTANT: Work Around to Fix Mis-position if itemsPerRow is zero
+        if perRow == 0 {
+          perRow = Int(floor(collectionViewWidth / layoutAttribute.size.width))
+        }
 
         if let previousItem = previousAttribute {
           if perRow > 1,
