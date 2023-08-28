@@ -35,6 +35,10 @@ The framework also provides a good base for your custom implementations. By exte
 - [x] 📺 tvOS support
 - [x] 🦖 Objective-C support
 
+## Supporting the project
+
+If you want to support the development of this framework, you can do so by becoming a [sponsor](https://github.com/sponsors/zenangst). ❤️
+
 ## Preview
 
 | iOS   | macOS  |
